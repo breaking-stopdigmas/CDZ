@@ -1,0 +1,30 @@
+Touro{Explosivo, Arrogante, Analista}
+Cancêr{Explosivo, Arrogante, Caótico}
+Gêmeos{Paciênte, Arrogante, Caótico}
+Leão{Moderado, Virtuoso, Justo}
+Virgem{Paciênte, Virtuoso, Justo}
+Áries{Paciênte, Humilde, Justo}
+Libra{Paciênte, Humilde, Analista}
+Escorpião{Explosivo, Virtuoso, Caótico}
+Sagitário{Moderado, Humilde, Analista}
+Capricórnio{Explosivo, Virtuoso, Analista}
+Aquário{Moderado, Humilde, Justo}
+Peixes{Moderado, Arrogante, Caótico}
+
+Características:
+    - Temperamento:
+        Paciênte
+        Moderado
+        Explosivo
+
+    - Personalidade:
+        Humilde
+        Virtuoso
+        Arrogante
+
+    - Senso de Justiça:
+        Justo
+        Analista
+        Caótico
+
+        

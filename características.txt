@@ -23,8 +23,8 @@ Características:
         Arrogante
 
     - Senso de Justiça:
-        Justo
-        Analista
+        Leal
+        Neutro
         Caótico
 
         

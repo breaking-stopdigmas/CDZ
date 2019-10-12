@@ -12,7 +12,7 @@ cavaleiro(explosivo, virtuoso, neutro, capricornio).
 cavaleiro(moderado, humilde, leal, aquario).
 cavaleiro(moderado, arrogante, caotico, peixes).
 
-pergunta :-
+pergunta1 :-
     write(
         'Como você se considera em relação ao seu temperamento?\n
         Digite o número da resposta:\n
@@ -21,6 +21,15 @@ pergunta :-
         3 - Paciênte\n'
     ),
     read(X),
+    switch_q1(X).
+        switch_q1(1) :-
+            Resp1 = explosivo.
+        switch_q1(2) :-
+            Resp1 = moderado.
+        switch_q1(3) :-
+            Resp1 = paciente.
+
+pergunta2 :-
     write(
         'Como você se considera em relação à sua personalidade?\n
         Digite o número da resposta:\n
@@ -29,6 +38,15 @@ pergunta :-
         3 - Humilde\n'
     ),
     read(Y),
+    switch_q2(Y).
+        switch_q2(1) :-
+            Resp2 = arrogante.
+        switch_q2(2) :-
+            Resp2 = virtuoso.
+        switch_q2(3) :-
+            Resp2 = humilde.
+
+pergunta3 :-
     write(
         'Como você se considera em relação ao seu senso de justiça?\n
         Digite o número da resposta:\n
@@ -36,8 +54,26 @@ pergunta :-
         2 - Neutro\n
         3 - Caótico\n'
     ),
-    read(Z).
-    
+    read(Z),
+    switch_q3(Z).
+        switch_q3(1) :-
+            Resp3 = leal.
+        switch_q3(2) :-
+            Resp3 = neutro.
+        switch_q3(3) :-
+            Resp3 = caotico.
 
-    
+seuCavaleiro(Resp1, Resp2, Resp3) :-
+    cavaleiro(Resp1, Resp2, Resp3, W),
+    write(Resp1) ,write(Resp2) ,write(Resp3), 
+    write('Você é o cavaleiro de '),
+    write(W).
+
+start :-
+    pergunta1,
+    pergunta2,
+    pergunta3,
+    seuCavaleiro(Resp1, Resp2, Resp3).
+
+
     

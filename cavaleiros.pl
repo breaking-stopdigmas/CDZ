@@ -1,17 +1,32 @@
+% Definição dos cavaleiros 
 % cavaleiro(temperamento, personalidade, senso_de_justica, casa)
+
 cavaleiro(explosivo, arrogante, neutro, touro).
 cavaleiro(explosivo, arrogante, caotico, cancer).
+cavaleiro(explosivo, virtuoso, caotico, escorpiao).
+cavaleiro(explosivo, virtuoso, neutro, capricornio).
 cavaleiro(paciente, arrogante, caotico, gemeos).
-cavaleiro(moderado, virtuoso, leal, leao).
 cavaleiro(paciente, virtuoso, leal, virgem).
 cavaleiro(paciente, humilde, leal, aries).
 cavaleiro(paciente, humilde, neutro, libra).
-cavaleiro(explosivo, virtuoso, caotico, escorpiao).
 cavaleiro(moderado, humilde, neutro, sagitario).
-cavaleiro(explosivo, virtuoso, neutro, capricornio).
+cavaleiro(moderado, virtuoso, leal, leao).
 cavaleiro(moderado, humilde, leal, aquario).
 cavaleiro(moderado, arrogante, caotico, peixes).
 
+
+% ================= Main loop ===========================
+start :-
+    \+ pergunta1(Resp1),
+    \+ pergunta2(Resp2),
+    \+ pergunta3(Resp3),
+    seuCavaleiro(Resp1, Resp2, Resp3).
+
+
+% ================ Functions =============================
+
+
+% Pergunta sobre temperamento
 pergunta1(Resp1) :-
     write(
         'Como você se considera em relação ao seu temperamento?\n
@@ -21,8 +36,12 @@ pergunta1(Resp1) :-
         3 - Paciênte\n'
     ),
     read(Op1),
-    switch_q1(Op1, Resp1).
+    \+ switch_q1(Op1, Resp1),
+    writeln('Você precisa responder a questão com 1, 2 ou 3.\n'),
+    pergunta1(Resp1).
 
+
+% Pergunta sobre personalidade
 pergunta2(Resp2) :-
     write(
         'Como você se considera em relação à sua personalidade?\n
@@ -32,8 +51,12 @@ pergunta2(Resp2) :-
         3 - Humilde\n'
     ),
     read(Op2),
-    switch_q2(Op2, Resp2).
+    \+ switch_q2(Op2, Resp2),
+    writeln('Você precisa responder a questão com 1, 2 ou 3.\n'),
+    pergunta2(Resp2).
 
+
+% Pergunta sobre senso_de_justica
 pergunta3(Resp3) :-
     write(
         'Como você se considera em relação ao seu senso de justiça?\n
@@ -43,8 +66,18 @@ pergunta3(Resp3) :-
         3 - Caótico\n'
     ),
     read(Op3),
-    switch_q3(Op3, Resp3).
+    \+ switch_q3(Op3, Resp3),
+    writeln('Você precisa responder a questão com 1, 2 ou 3.\n'),
+    pergunta3(Resp3).
 
+% Escolha do cavaleiro
+seuCavaleiro(Resp1, Resp2, Resp3) :-
+    cavaleiro(Resp1, Resp2, Resp3, Cav),
+    write('Você é o cavaleiro de '),
+    write(Cav).
+
+
+% troca de números por comportamento.
 switch_q1(1, Resp1) :-
     Resp1 = explosivo.
 switch_q1(2, Resp1) :-
@@ -65,17 +98,6 @@ switch_q3(2, Resp3) :-
     Resp3 = neutro.
 switch_q3(3, Resp3) :-
     Resp3 = caotico.
-
-seuCavaleiro(Resp1, Resp2, Resp3) :-
-    cavaleiro(Resp1, Resp2, Resp3, Cav),
-    write('Você é o cavaleiro de '),
-    write(Cav).
-
-start :-
-    pergunta1(Resp1),
-    pergunta2(Resp2),
-    pergunta3(Resp3),
-    seuCavaleiro(Resp1, Resp2, Resp3).
 
 
     

@@ -1,3 +1,4 @@
+% Definição dos cavaleiros
 % cavaleiro(temperamento, personalidade, senso_de_justica, casa)
 cavaleiro(explosivo, arrogante, neutro, touro).
 cavaleiro(explosivo, arrogante, caotico, cancer).
@@ -12,7 +13,16 @@ cavaleiro(explosivo, virtuoso, neutro, capricornio).
 cavaleiro(moderado, humilde, leal, aquario).
 cavaleiro(moderado, arrogante, caotico, peixes).
 
+% ====================== Main ===========================
+start :-
+    pergunta1(Resp1),
+    pergunta2(Resp2),
+    pergunta3(Resp3),
+    seuCavaleiro(Resp1, Resp2, Resp3).
 
+% ===================== Funções =====================
+
+% Perguntas
 pergunta1(Resp1) :-
     write(
         'Como você se considera em relação ao seu temperamento?\n
@@ -46,6 +56,7 @@ pergunta3(Resp3) :-
     read(Op3),
     switch_q3(Op3, Resp3).
 
+% Troca do numero pelo atomo
 switch_q1(1, Resp1) :-
     Resp1 = explosivo.
 switch_q1(2, Resp1) :-
@@ -67,13 +78,10 @@ switch_q3(2, Resp3) :-
 switch_q3(3, Resp3) :-
     Resp3 = caotico.
 
+
+% Pegar cavaleiro e escrever na tela
 seuCavaleiro(Resp1, Resp2, Resp3) :-
     cavaleiro(Resp1, Resp2, Resp3, Cav), 
     write('Você é o cavaleiro de '),
     write(Cav).
 
-start :-
-    pergunta1(Resp1),
-    pergunta2(Resp2),
-    pergunta3(Resp3),
-    seuCavaleiro(Resp1, Resp2, Resp3).

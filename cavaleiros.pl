@@ -18,8 +18,10 @@ start :-
     pergunta1(Resp1),
     pergunta2(Resp2),
     pergunta3(Resp3),
-    seuCavaleiro(Resp1, Resp2, Resp3).
-
+    (cavaleiro(Resp1, Resp2, Resp3, X) ->
+        seuCavaleiro(Resp1, Resp2, Resp3);
+        writeln('\n\n\nParabéns, você faz parte de uma constelação ainda não descoberta pelo homem.')
+    ).
 % ===================== Funções =====================
 
 % Perguntas
@@ -32,7 +34,10 @@ pergunta1(Resp1) :-
         3 - Paciênte\n'
     ),
     read(Op1),
-    switch_q1(Op1, Resp1).
+    switch_q1(Op1, Resp1);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta1(Resp1).
+    
 
 pergunta2(Resp2) :-
     write(
@@ -43,7 +48,9 @@ pergunta2(Resp2) :-
         3 - Humilde\n'
     ),
     read(Op2),
-    switch_q2(Op2, Resp2).
+    switch_q2(Op2, Resp2);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta2(Resp2).
 
 pergunta3(Resp3) :-
     write(
@@ -54,9 +61,11 @@ pergunta3(Resp3) :-
         3 - Caótico\n'
     ),
     read(Op3),
-    switch_q3(Op3, Resp3).
+    switch_q3(Op3, Resp3);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta3(Resp3).
 
-% Troca do numero pelo atomo
+% Troca do numero pelo atomo 
 switch_q1(1, Resp1) :-
     Resp1 = explosivo.
 switch_q1(2, Resp1) :-
@@ -83,5 +92,4 @@ switch_q3(3, Resp3) :-
 seuCavaleiro(Resp1, Resp2, Resp3) :-
     cavaleiro(Resp1, Resp2, Resp3, Cav), 
     write('Você é o cavaleiro de '),
-    write(Cav).
-
+    writeln(Cav).

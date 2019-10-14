@@ -12,6 +12,7 @@ cavaleiro(explosivo, virtuoso, neutro, capricornio).
 cavaleiro(moderado, humilde, leal, aquario).
 cavaleiro(moderado, arrogante, caotico, peixes).
 
+
 pergunta1_1(Resp1_1) :-
     write(
         '# Temperamento\n
@@ -137,19 +138,49 @@ switch_q1_3(2, Resp1_3) :-
 switch_q1_3(3, Resp1_3) :-
     Resp1_3 = 1.
 
+findsum_q1(L, X):-
+    sum(L,Sum),
+    X is Sum+0.
+
+findsum_q2(L, Y):-
+    sum(L,Sum),
+    Y is Sum+0.
+
+findsum_q3(L, Z):-
+    sum(L,Sum),
+    Z is Sum+0.
+        
+sum([],0).
+
+sum([X|Tail],Sum):-
+    sum(Tail,Temp),
+    Sum=Temp+X.
+
 result_q1(Resp1, Resp1_1, Resp1_2, Resp1_3) :-
-    aux_ans_q1 = Resp1_1 + Resp1_2,
-    ans_q1 = aux_ans_q1 + Resp1_3,
-    (
-        ans_q1 < 0 ->
-        Resp1 = paciente
-    ;   ans_q1 =:= 0 ->
-        Resp1 = moderado
-    ;   Resp1 = explosivo
+    findsum_q1([Resp1_1,Resp1_2,Resp1_3], X),
+    ( lower_than_zero(X) 
+    -> Resp1 = paciente
+    ;  ( equal_to_zero(X) 
+          -> Resp1 = moderado
+          ; Resp1 = explosivo
+       )
     ),
-    write(ans_q1).
+    write(Resp1).
 
+lower_than_zero(X) :-
+    ( X < 0
+      -> true
+      ; false).
 
+equal_to_zero(Y) :-
+    ( Y =:= 0
+      -> true
+      ; false).
+
+bigger_than_zero(Z) :-
+    ( Z > 0
+    -> true
+    ; false).
 
 
 switch_q2_1(1, Resp2_1) :-
@@ -174,18 +205,15 @@ switch_q2_3(3, Resp2_3) :-
     Resp2_3 = 1.
 
 result_q2(Resp2, Resp2_1, Resp2_2, Resp2_3) :-
-    aux_ans_q2 = Resp2_1 + Resp2_2,
-    ans_q2 = aux_ans_q2 + Resp2_3,
-    (
-        ans_q2 < 0 ->
-        Resp2 = humilde
-    ;   ans_q2 =:= 0 ->
-        Resp2 = virtuoso
-    ;   Resp2 = arrogante
+    findsum_q2([Resp2_1,Resp2_2,Resp2_3], Y),
+    ( lower_than_zero(Y) 
+    -> Resp2 = humilde
+    ;  ( equal_to_zero(Y) 
+          -> Resp2 = virtuoso
+          ; Resp2 = arrogante
+       )
     ),
-    write(ans_q2).
-
-
+    write(Resp2).
 
 switch_q3_1(1, Resp3_1) :-
     Resp3_1 = -1.
@@ -209,16 +237,15 @@ switch_q3_3(3, Resp3_3) :-
     Resp3_3 = 1.
 
 result_q3(Resp3, Resp3_1, Resp3_2, Resp3_3) :-
-    aux_ans_q3 = Resp3_1 + Resp3_2,
-    ans_q3 = aux_ans_q3 + Resp3_3,
-    (
-        ans_q3 < 0 ->
-        Resp3 = leal
-    ;   ans_q3 =:= 0 ->
-        Resp3 = neutro
-    ;   Resp3 = caotico
+    findsum_q3([Resp3_1,Resp3_2,Resp3_3], Z),
+    ( lower_than_zero(Z) 
+    -> Resp3 = leal
+    ;  ( equal_to_zero(Z) 
+          -> Resp3 = neutro
+          ; Resp3 = caotico
+       )
     ),
-    write(ans_q3).
+    write(Resp3).
 
 seuCavaleiro(Resp1, Resp2, Resp3) :-
     cavaleiro(Resp1, Resp2, Resp3, Cav), 

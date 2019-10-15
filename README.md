@@ -13,15 +13,9 @@ Obs: Vale relembrar que, sendo feito em Prolog, é necessário incluir o "." ao 
 
 Exemplo:
 ```
-# Temperamento
-
-        1 - O programa que voce estava desenvolvendo para de produzir o resultado que voce esperava "do nada". O que você faz?
-
-
-        A) Decide tirar uma pausa para tentar resolver póstumamente
-
-        B) Googla para tentar solucionar
-
-        C) Xinga o universo
+1 - Quanto é 2+3? (opções 1, 2, 3)
+A) 9
+B) -4
+C) 5
 |: 3.
 ```

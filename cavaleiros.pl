@@ -1,3 +1,4 @@
+% Definição dos cavaleiros
 % cavaleiro(temperamento, personalidade, senso_de_justica, casa)
 cavaleiro(explosivo, arrogante, neutro, touro).
 cavaleiro(explosivo, arrogante, caotico, cancer).
@@ -12,6 +13,26 @@ cavaleiro(explosivo, virtuoso, neutro, capricornio).
 cavaleiro(moderado, humilde, leal, aquario).
 cavaleiro(moderado, arrogante, caotico, peixes).
 
+% ====================== Main ===========================
+start :-
+    pergunta1_1(Resp1_1),
+    pergunta1_2(Resp1_2),
+    pergunta1_3(Resp1_3),
+    result_q1(Resp1, Resp1_1, Resp1_2, Resp1_3),
+    pergunta2_1(Resp2_1),
+    pergunta2_2(Resp2_2),
+    pergunta2_3(Resp2_3),
+    result_q2(Resp2, Resp2_1, Resp2_2, Resp2_3),
+    pergunta3_1(Resp3_1),
+    pergunta3_2(Resp3_2),
+    pergunta3_3(Resp3_3),
+    result_q3(Resp3, Resp3_1, Resp3_2, Resp3_3),
+    (
+        cavaleiro(Resp1, Resp2, Resp3, _) 
+    ->  seuCavaleiro(Resp1, Resp2, Resp3)
+    ;   writeln('\n\n\n\tParabéns!\nVocê faz parte de uma constelação ainda não descoberta pelo homem.')
+    ).
+% ===================== Funções =====================
 
 pergunta1_1(Resp1_1) :-
     write(
@@ -22,7 +43,10 @@ pergunta1_1(Resp1_1) :-
         C) Xinga o universo\n'
     ),
     read(Op1_1),
-    switch_q1_1(Op1_1, Resp1_1).
+    switch_q1_1(Op1_1, Resp1_1);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta1_1(Resp1_1).
+    
 
 pergunta1_2(Resp1_2) :-
     write(
@@ -33,7 +57,9 @@ pergunta1_2(Resp1_2) :-
         C) Decepcionado/entediado\n'
     ),
     read(Op1_2),
-    switch_q1_2(Op1_2, Resp1_2).
+    switch_q1_2(Op1_2, Resp1_2);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta1_2(Resp1_2).
 
 pergunta1_3(Resp1_3) :-
     write(
@@ -44,7 +70,9 @@ pergunta1_3(Resp1_3) :-
         C) Apenas ignoro-os\n'
     ),
     read(Op1_3),
-    switch_q1_3(Op1_3, Resp1_3).
+    switch_q1_3(Op1_3, Resp1_3);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta1_3(Resp1_3).
 
 
 pergunta2_1(Resp2_1) :-
@@ -56,7 +84,9 @@ pergunta2_1(Resp2_1) :-
         C) Discordo\n\n'
     ),
     read(Op2_1),
-    switch_q2_1(Op2_1, Resp2_1).
+    switch_q2_1(Op2_1, Resp2_1);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta2_1(Resp2_1).
 
 pergunta2_2(Resp2_2) :-
     write(
@@ -67,7 +97,9 @@ pergunta2_2(Resp2_2) :-
         C) Discordo\n\n'
     ),
     read(Op2_2),
-    switch_q2_2(Op2_2, Resp2_2).
+    switch_q2_2(Op2_2, Resp2_2);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta2_2(Resp2_2).
 
 pergunta2_3(Resp2_3) :-
     write(
@@ -78,7 +110,9 @@ pergunta2_3(Resp2_3) :-
         C) Discordo\n'
     ),
     read(Op2_3),
-    switch_q2_3(Op2_3, Resp2_3).
+    switch_q2_3(Op2_3, Resp2_3);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta2_3(Resp2_3).
 
 
 
@@ -91,7 +125,9 @@ pergunta3_1(Resp3_1) :-
         C) Nunca\n'
     ),
     read(Op3_1),
-    switch_q3_1(Op3_1, Resp3_1).
+    switch_q3_1(Op3_1, Resp3_1);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta3_1(Resp3_1).
 
 pergunta3_2(Resp3_2) :-
     write(
@@ -102,7 +138,9 @@ pergunta3_2(Resp3_2) :-
         C) Inverdade\n'
     ),
     read(Op3_2),
-    switch_q3_2(Op3_2, Resp3_2).
+    switch_q3_2(Op3_2, Resp3_2);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta3_2(Resp3_2).
 
 pergunta3_3(Resp3_3) :-
     write(
@@ -113,10 +151,12 @@ pergunta3_3(Resp3_3) :-
         C) Nunca\n'
     ),
     read(Op3_3),
-    switch_q3_3(Op3_3, Resp3_3).
+    switch_q3_3(Op3_3, Resp3_3);
+    writeln('Opção incorreta. Por favor digite as opções 1, 2 ou 3.'),
+    pergunta3_3(Resp3_3).
 
 
-
+% Troca do numero pelo atomo 
 switch_q1_1(1, Resp1_1) :-
     Resp1_1 = -1.
 switch_q1_1(2, Resp1_1) :-
@@ -247,22 +287,10 @@ result_q3(Resp3, Resp3_1, Resp3_2, Resp3_3) :-
     ),
     write(Resp3).
 
+
+% Pegar cavaleiro e escrever na tela
 seuCavaleiro(Resp1, Resp2, Resp3) :-
     cavaleiro(Resp1, Resp2, Resp3, Cav), 
     write('Você é o cavaleiro de '),
-    write(Cav).
+    writeln(Cav).
 
-start :-
-    pergunta1_1(Resp1_1),
-    pergunta1_2(Resp1_2),
-    pergunta1_3(Resp1_3),
-    result_q1(Resp1, Resp1_1, Resp1_2, Resp1_3),
-    pergunta2_1(Resp2_1),
-    pergunta2_2(Resp2_2),
-    pergunta2_3(Resp2_3),
-    result_q2(Resp2, Resp2_1, Resp2_2, Resp2_3),
-    pergunta3_1(Resp3_1),
-    pergunta3_2(Resp3_2),
-    pergunta3_3(Resp3_3),
-    result_q3(Resp3, Resp3_1, Resp3_2, Resp3_3),
-    seuCavaleiro(Resp1, Resp2, Resp3).

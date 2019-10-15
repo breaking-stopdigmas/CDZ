@@ -53,8 +53,8 @@ pergunta1_2(Resp1_2) :-
         '# Temperamento\n
         2 - Você compra uma tesoura que vem dentro de um pacote que necessita do auxílio de uma tesoura para abrí-lo. Como você se sente?\n\n
         A) Levemente risonho\n
-        B) Extremamente irritado\n
-        C) Decepcionado/entediado\n'
+        B) Decepcionado/entediado\n
+        C) Extremamente irritado\n'
     ),
     read(Op1_2),
     switch_q1_2(Op1_2, Resp1_2);
@@ -66,8 +66,8 @@ pergunta1_3(Resp1_3) :-
         '# Temperamento\n
         3 - Qual sua opinião sobre comentários em geral na Internet?\n\n
         A) Ok, todos têm direito de ter uma opinião\n
-        B) Alguém delete a internet\n
-        C) Apenas ignoro-os\n'
+        B) Apenas ignoro-os\n
+        C) Alguém delete a internet\n'
     ),
     read(Op1_3),
     switch_q1_3(Op1_3, Resp1_3);
@@ -79,9 +79,9 @@ pergunta2_1(Resp2_1) :-
     write(
         '# Personalidade\n
         1 - Quando alguma tarefa há de ser feita, assumo a responsabilidade pois acredito que fazê-la-ei melhor que os outros.\n\n
-        A) Concordo\n
+        A) Discordo\n\n
         B) Neutro/às vezes\n
-        C) Discordo\n\n'
+        C) Concordo\n'
     ),
     read(Op2_1),
     switch_q2_1(Op2_1, Resp2_1);
@@ -92,9 +92,9 @@ pergunta2_2(Resp2_2) :-
     write(
         '# Personalidade\n
         2 - Quando alguém faz piadinhas inofensivas comigo, fico enraivecido e na defensiva.\n\n
-        A) Concordo\n
+        A) Discordo\n\n
         B) Neutro/às vezes\n
-        C) Discordo\n\n'
+        C) Concordo\n'
     ),
     read(Op2_2),
     switch_q2_2(Op2_2, Resp2_2);
@@ -105,9 +105,9 @@ pergunta2_3(Resp2_3) :-
     write(
         '# Personalidade\n
         3 - Ser corrigido por outros, em público, me irrita\n\n
-        A) Concordo\n
+        A) Discordo\n
         B) Neutro/às vezes\n
-        C) Discordo\n'
+        C) Concordo\n'
     ),
     read(Op2_3),
     switch_q2_3(Op2_3, Resp2_3);
@@ -120,9 +120,9 @@ pergunta3_1(Resp3_1) :-
     write(
         '# Senso de Justiça\n
         1 - Se há regras que impedem-me de fazer o que gostaria, desobedeço-as.\n
-        A) Sempre\n
+        A) Nunca\n
         B) Às vezes\n
-        C) Nunca\n'
+        C) Sempre\n'
     ),
     read(Op3_1),
     switch_q3_1(Op3_1, Resp3_1);
@@ -146,9 +146,9 @@ pergunta3_3(Resp3_3) :-
     write(
         '# Senso de Justiça\n
         3 - Se algo me ferir, buscarei vingança.\n
-        A) Sempre\n
+        A) Nunca\n
         B) Às vezes\n
-        C) Nunca\n'
+        C) Sempre\n'
     ),
     read(Op3_3),
     switch_q3_3(Op3_3, Resp3_3);
